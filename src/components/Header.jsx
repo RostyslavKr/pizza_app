@@ -9,29 +9,29 @@ export const Header = () => {
           height={120}
         />
         <nav class="flex ">
-          <ul class="flex w-lg justify-between justify-items-center items-center font-header">
+          <ul class="flex w-lg justify-between justify-items-center items-center font-menu">
             <li class="text-white hover:text-orange-700">
-              <a class="uppercase font-bold text-lg">Home</a>
+              <a class="uppercase font-bold text-xl">Home</a>
             </li>
             <li class="text-white hover:text-orange-700">
-              <a class="uppercase font-bold text-lg">About Us</a>
+              <a class="uppercase font-bold text-xl">About Us</a>
             </li>
             <li class="text-white hover:text-orange-700">
-              <a class="uppercase font-bold text-lg">Deals</a>
+              <a class="uppercase font-bold text-xl">Deals</a>
             </li>
             <li class="text-white hover:text-orange-700">
-              <a class="uppercase font-bold text-lg">Menu</a>
+              <a class="uppercase font-bold text-xl">Menu</a>
             </li>
             <li class="text-white hover:text-orange-700">
-              <a class="uppercase font-bold text-lg">Delivery</a>
+              <a class="uppercase font-bold text-xl">Delivery</a>
             </li>
           </ul>
         </nav>
         <div class="flex">
           <button>
             <svg
-              width="40px"
-              height="40px"
+              width="25px"
+              height="25px"
               class="fill-white hover:fill-orange-700"
             >
               <use href="./images/sprite.svg#login"></use>
@@ -39,8 +39,8 @@ export const Header = () => {
           </button>
           <button>
             <svg
-              width="40px"
-              height="40px"
+              width="35px"
+              height="35px"
               class="fill-white hover:fill-orange-700"
             >
               <use href="./images/sprite.svg#shopping-basket"></use>

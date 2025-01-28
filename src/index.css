@@ -15,12 +15,14 @@
 }
 @theme {
   --font-header: "Oswald", "sans-serif";
+  --font-menu: "Comfortaa", serif;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #F9F9F9;
 }
 
 h1 {
