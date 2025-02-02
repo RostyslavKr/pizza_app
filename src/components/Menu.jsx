@@ -198,7 +198,7 @@ const menu = [
 export const Menu = () => {
   return (
     <section>
-      <div>
+      <div class="pb-20">
         <p class="font-menu font-bold text-5xl uppercase text-black pl-6 pt-6 pb-6">
           Pizza
         </p>

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Comfortaa",
+    serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,10 +14,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-@theme {
+/* @theme {
   --font-header: "Oswald", "sans-serif";
   --font-menu: "Comfortaa", serif;
-}
+} */
 
 body {
   min-width: 320px;
@@ -29,9 +30,9 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-a {
+/* a {
   color: inherit;
-}
+} */
 
 button {
   border-radius: 8px;

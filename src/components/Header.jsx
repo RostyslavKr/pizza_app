@@ -37,7 +37,7 @@ export const Header = () => {
               <use href="./images/sprite.svg#login"></use>
             </svg>
           </button>
-          <button>
+          <button class="fixed top-[60px] right-[15px] bg-[url(./images/icon-card-bg.png)] bg-cover bg-no-repeat bg-center flex  justify-center items-center w-[100px] h-[100px] z-3">
             <svg
               width="25px"
               height="25px"
