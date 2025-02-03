@@ -69,8 +69,8 @@ export const Footer = () => {
           <li>
             <a>
               <svg
-                width="50px"
-                height="50px"
+                width="40px"
+                height="40px"
                 class="fill-white cursor-pointer hover:fill-orange-700 duration-250 ease-in"
               >
                 <use href="./images/sprite.svg#icon-instagram"></use>
@@ -80,19 +80,19 @@ export const Footer = () => {
           <li>
             <a>
               <svg
-                width="50px"
-                height="50px"
+                width="40px"
+                height="40px"
                 class="fill-white cursor-pointer hover:fill-orange-700 duration-250 ease-in"
               >
-                <use href="./images/sprite.svg#icon-tik-tok"></use>
+                <use href="./images/sprite.svg#tiktok2"></use>
               </svg>
             </a>
           </li>
           <li>
             <a>
               <svg
-                width="50px"
-                height="50px"
+                width="40px"
+                height="40px"
                 class="fill-white cursor-pointer hover:fill-orange-700 duration-250 ease-in"
               >
                 <use href="./images/sprite.svg#icon-facebook"></use>
