@@ -1,11 +1,34 @@
+import React, { useState } from "react";
+import { useParams } from "react-router";
+import { getPizzaById } from "../apiMenu";
+
 export const PizzaDetails = () => {
+  const [counter, setCounter] = useState(1);
+  const { id } = useParams();
+  const pizza = getPizzaById(id);
+  const [price, setPrice] = useState(pizza.price);
+  const [priceIngredient, setPriceIngredient] = useState(0);
+
+  const handleClickInc = () => {
+    setCounter(counter + 1);
+  };
+
+  const handleClickDecr = () => {
+    if (counter === 1) {
+      return;
+    } else {
+      setCounter(counter - 1);
+    }
+  };
+
   return (
-    <div>
-      <div>
-        <img />
+    <div class="bg-white">
+      <div class="flex">
+        <img src={pizza.image} alt="pizza" width={400} height={400} />
         <div>
-          <p>pizza name</p>
-          <p>pizza description</p>
+          <p>{pizza.title}</p>
+          <p>{pizza.weight}g</p>
+          <p>{pizza.description}</p>
           <form class="inline-flex items-center justify-around w-full bg-gray-100  rounded-full">
             <label class="block w-full cursor-pointer text-center">
               <input
@@ -26,17 +49,18 @@ export const PizzaDetails = () => {
               </span>
             </label>
           </form>
-        </div>
-        <div>
-          <button>Add ingridients</button>
-          <div>
-            {" "}
-            <span>+</span> <input type="text" maxlength="3" value="1" />{" "}
-            <span>-</span>
+          <div class="flex">
+            <button>Add ingridients</button>
+            <div class="flex items-center">
+              <button onClick={handleClickInc}>+</button>
+              <p>{counter}</p>
+              <button onClick={handleClickDecr}>-</button>
+            </div>
           </div>
-          <div>
-            <p>Ingridients:</p>
-            <p>Total:</p>
+
+          <div class="flex">
+            <p>Ingridients: {priceIngredient}$</p>
+            <p>Total: {price}$</p>
           </div>
           <button>Add to cart</button>
         </div>
