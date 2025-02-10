@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
 import { getPizzaById } from "../apiMenu";
+import { getIngredients } from "../apiIngredients";
 
 export const PizzaDetails = () => {
   const [counter, setCounter] = useState(1);
   const { id } = useParams();
   const pizza = getPizzaById(id);
+  const ingredients = getIngredients();
   const [price, setPrice] = useState(pizza.price);
   const [priceIngredient, setPriceIngredient] = useState(0);
 
@@ -68,12 +70,14 @@ export const PizzaDetails = () => {
       <div>
         <p>Ingridients for pizza</p>
         <ul>
-          <li>
-            <img />
-            <p>name</p>
-            <p>weight</p>
-            <p>cost</p>
-          </li>
+          {ingredients.map((i, index) => (
+            <li key={index}>
+              <img src={i.image} alt="ing" width={50} height={50} />
+              <p>{i.name}</p>
+              <p>{i.weight}</p>
+              <p>{i.price}</p>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
