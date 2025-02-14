@@ -24,7 +24,7 @@ export const PizzaDetails = () => {
   };
 
   return (
-    <div class="bg-white">
+    <div class="bg-white ">
       <div class="flex justify-around gap-4 m-auto w-[80%] pt-38">
         <img src={pizza.image} alt="pizza" width={450} height={450} />
         <div>
@@ -54,9 +54,13 @@ export const PizzaDetails = () => {
             </label>
           </form>
           <div class="flex gap-16 pb-[20px] pt-[20px]">
-            <button class="rounded-xl shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold tracking-wide">
+            <a
+              href="#ingridients"
+              scroll={false}
+              class="rounded-xl  shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold"
+            >
               Add ingridients
-            </button>
+            </a>
             <div class="flex items-center">
               <button class="text-2xl font-bold" onClick={handleClickInc}>
                 <svg
@@ -98,7 +102,7 @@ export const PizzaDetails = () => {
         </div>
       </div>
       <div class="pb-20">
-        <p class="text-center text-4xl font-bold pt-28 pb-16">
+        <p id="ingridients" class="text-center text-4xl font-bold pt-28 pb-16 ">
           Ingridients for pizza
         </p>
         <ul class="grid grid-row-3 grid-cols-6 gap-x-8 gap-y-20 px-[30px]">
