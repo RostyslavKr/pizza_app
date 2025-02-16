@@ -105,24 +105,29 @@ export const PizzaDetails = () => {
         <p id="ingridients" class="text-center text-4xl font-bold pt-28 pb-16 ">
           Ingridients for pizza
         </p>
-        <ul class="grid grid-row-3 grid-cols-6 gap-x-8 gap-y-15 px-[30px]">
+        <form class="grid grid-row-3 grid-cols-6 gap-x-8 gap-y-15 px-[30px]">
           {ingredients.map((i, index) => (
-            <li
-              key={index}
-              class="p-[15px] outline outline-transparent  hover:rounded-md hover:outline-3 hover:outline-orange-700 has-checked:outline-orange-700"
-            >
-              <div class="flex justify-center items-center ">
-                <img src={i.image} alt="ing" width={100} height={100} />
-              </div>
+            <label key={index}>
+              <input
+                type="checkbox"
+                name="ingridients"
+                value={i.name}
+                class="hidden peer"
+              />
+              <div class="p-[15px] rounded-md hover:outline-3 hover:outline-orange-700 transition-all duration-250 peer-checked:outline-orange-700 peer-checked:outline-3">
+                <div class="flex justify-center items-center ">
+                  <img src={i.image} alt="ing" width={100} height={100} />
+                </div>
 
-              <p class="text-center text-base font-bold">{i.name}</p>
-              <div class="flex justify-between items-center">
-                <p>{i.weight}g</p>
-                <p>{i.price}$</p>
+                <p class="text-center text-base font-bold">{i.name}</p>
+                <div class="flex justify-between items-center">
+                  <p>{i.weight}g</p>
+                  <p>{i.price}$</p>
+                </div>
               </div>
-            </li>
+            </label>
           ))}
-        </ul>
+        </form>
       </div>
     </div>
   );
