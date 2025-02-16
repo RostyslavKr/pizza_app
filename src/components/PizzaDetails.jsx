@@ -5,11 +5,21 @@ import { getIngredients } from "../apiIngredients";
 
 export const PizzaDetails = () => {
   const [counter, setCounter] = useState(1);
+  const [chosenIngredient, setChosenIngredient] = useState([]);
   const { id } = useParams();
   const pizza = getPizzaById(id);
   const ingredients = getIngredients();
   const [price, setPrice] = useState(pizza.price);
   const [priceIngredient, setPriceIngredient] = useState(0);
+
+  const handleChosenIngredient = (ingredient) => {
+    setChosenIngredient(
+      (prevChosen) =>
+        prevChosen.includes(ingredient.name)
+          ? prevChosen.filter((i) => i !== ingredient.name) // Видаляємо, якщо вже є
+          : [...prevChosen, ingredient.name] // Додаємо, якщо немає
+    );
+  };
 
   const handleClickInc = () => {
     setCounter(counter + 1);
@@ -62,7 +72,10 @@ export const PizzaDetails = () => {
               Add ingridients
             </a>
             <div class="flex items-center">
-              <button class="text-2xl font-bold" onClick={handleClickInc}>
+              <button
+                class="text-2xl font-bold cursor-pointer"
+                onClick={handleClickInc}
+              >
                 <svg
                   width={25}
                   height={25}
@@ -74,7 +87,10 @@ export const PizzaDetails = () => {
               <p class=" text-xl rounded-sm border border-black p-2 mr-2 ml-2">
                 {counter}
               </p>
-              <button class="text-2xl font-bold" onClick={handleClickDecr}>
+              <button
+                class="text-2xl font-bold cursor-pointer"
+                onClick={handleClickDecr}
+              >
                 <svg
                   width={25}
                   height={25}
@@ -96,7 +112,16 @@ export const PizzaDetails = () => {
               Total: <span class="text-3xl font-bold">{price}$</span>
             </p>
           </div>
-          <button class="rounded-xl shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold tracking-wide">
+          {chosenIngredient.length === 0 ? null : (
+            <ul class="grid grid-row-3 grid-cols-7 gap-x-1 gap-y-1">
+              {chosenIngredient.map((i, index) => (
+                <li key={index}>
+                  <p>{i}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+          <button class="rounded-xl shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold tracking-wide cursor-pointer">
             Add to cart
           </button>
         </div>
@@ -107,14 +132,14 @@ export const PizzaDetails = () => {
         </p>
         <form class="grid grid-row-3 grid-cols-6 gap-x-8 gap-y-15 px-[30px]">
           {ingredients.map((i, index) => (
-            <label key={index}>
+            <label key={index} onChange={() => handleChosenIngredient(i)}>
               <input
                 type="checkbox"
                 name="ingridients"
                 value={i.name}
                 class="hidden peer"
               />
-              <div class="p-[15px] rounded-md hover:outline-3 hover:outline-orange-700 transition-all duration-250 peer-checked:outline-orange-700 peer-checked:outline-3">
+              <div class="p-[15px] rounded-md hover:outline-3 hover:outline-orange-700 transition-all duration-250 peer-checked:outline-orange-700 peer-checked:outline-3  cursor-pointer">
                 <div class="flex justify-center items-center ">
                   <img src={i.image} alt="ing" width={100} height={100} />
                 </div>
