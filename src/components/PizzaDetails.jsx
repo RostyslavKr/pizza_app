@@ -9,15 +9,26 @@ export const PizzaDetails = () => {
   const { id } = useParams();
   const pizza = getPizzaById(id);
   const ingredients = getIngredients();
-  const [price, setPrice] = useState(pizza.price);
+  const [price, setPrice] = useState(parseFloat(pizza.price));
   const [priceIngredient, setPriceIngredient] = useState(0);
 
   const handleChosenIngredient = (ingredient) => {
-    setChosenIngredient(
-      (prevChosen) =>
-        prevChosen.includes(ingredient.name)
-          ? prevChosen.filter((i) => i !== ingredient.name) // Видаляємо, якщо вже є
-          : [...prevChosen, ingredient.name] // Додаємо, якщо немає
+    setChosenIngredient((prevChosen) =>
+      prevChosen.includes(ingredient.name)
+        ? prevChosen.filter((i) => i !== ingredient.name)
+        : [...prevChosen, ingredient.name]
+    );
+
+    setPriceIngredient((prevIng) =>
+      chosenIngredient.includes(ingredient.name)
+        ? parseFloat(prevIng) - parseFloat(ingredient.price)
+        : parseFloat(prevIng) + parseFloat(ingredient.price)
+    );
+
+    setPrice((prevPrice) =>
+      chosenIngredient.includes(ingredient.name)
+        ? parseFloat(prevPrice) - parseFloat(ingredient.price)
+        : parseFloat(prevPrice) + parseFloat(ingredient.price)
     );
   };
 
@@ -106,10 +117,12 @@ export const PizzaDetails = () => {
           <div class="flex gap-16 pb-[50px]">
             <p class="text-2xl font-medium">
               Ingridients:{" "}
-              <span class="text-3xl font-bold">{priceIngredient}$</span>
+              <span class="text-3xl font-bold">
+                {priceIngredient.toFixed(2)}$
+              </span>
             </p>
             <p class="text-2xl font-medium">
-              Total: <span class="text-3xl font-bold">{price}$</span>
+              Total: <span class="text-3xl font-bold">{price.toFixed(2)}$</span>
             </p>
           </div>
           {chosenIngredient.length === 0 ? null : (
