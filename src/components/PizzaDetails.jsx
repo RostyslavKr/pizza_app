@@ -5,12 +5,17 @@ import { getIngredients } from "../apiIngredients";
 
 export const PizzaDetails = () => {
   const [counter, setCounter] = useState(1);
+  const [size, setSize] = useState(30);
   const [chosenIngredient, setChosenIngredient] = useState([]);
   const { id } = useParams();
   const pizza = getPizzaById(id);
   const ingredients = getIngredients();
   const [price, setPrice] = useState(parseFloat(pizza.price));
+  const [weight, setWeight] = useState(parseFloat(pizza.weight));
   const [priceIngredient, setPriceIngredient] = useState(0);
+  const calculatedPrice = size === 30 ? price : price * 1.5;
+  const calculatedWeight = size === 30 ? weight : weight * 1.7;
+  const totalPrice = (calculatedPrice + priceIngredient) * counter;
 
   const handleChosenIngredient = (ingredient) => {
     setChosenIngredient((prevChosen) =>
@@ -30,27 +35,31 @@ export const PizzaDetails = () => {
         ? parseFloat(prevPrice) - parseFloat(ingredient.price)
         : parseFloat(prevPrice) + parseFloat(ingredient.price)
     );
+
+    setWeight((prevWeight) =>
+      chosenIngredient.includes(ingredient.name)
+        ? parseFloat(prevWeight) - parseFloat(ingredient.weight)
+        : parseFloat(prevWeight) + parseFloat(ingredient.weight)
+    );
   };
 
   const handleClickInc = () => {
-    setCounter(counter + 1);
+    setCounter((prevCounter) => prevCounter + 1);
   };
 
   const handleClickDecr = () => {
-    if (counter === 1) {
-      return;
-    } else {
-      setCounter(counter - 1);
+    if (counter > 1) {
+      setCounter((prevCounter) => prevCounter - 1);
     }
   };
-
+  console.log(priceIngredient);
   return (
     <div class="bg-white ">
       <div class="flex justify-around gap-4 m-auto w-[80%] pt-38">
         <img src={pizza.image} alt="pizza" width={450} height={450} />
         <div>
           <p class="text-4xl font-semibold pb-[10px]">{pizza.title}</p>
-          <p>{pizza.weight}g</p>
+          <p>{calculatedWeight}g</p>
           <p class="text-lg font-medium tracking-wide pb-[10px]">
             {pizza.description}
           </p>
@@ -61,14 +70,22 @@ export const PizzaDetails = () => {
                 name="size"
                 value="30"
                 class="hidden peer"
-                checked
+                checked={size === 30}
+                onChange={() => setSize(30)}
               />
               <span class="block px-4 py-2 rounded-full  peer-checked:bg-white peer-checked:shadow-md peer-checked:font-bold duration-300 ease-in-out">
                 30 см
               </span>
             </label>
             <label class="block w-full cursor-pointer text-center">
-              <input type="radio" name="size" value="40" class="hidden peer" />
+              <input
+                type="radio"
+                name="size"
+                value="40"
+                class="hidden peer"
+                checked={size === 40}
+                onChange={() => setSize(40)}
+              />
               <span class="block px-4 py-2 rounded-full  peer-checked:bg-white peer-checked:shadow-md peer-checked:font-bold duration-300 ease-in-out">
                 40 см
               </span>
@@ -77,7 +94,12 @@ export const PizzaDetails = () => {
           <div class="flex gap-16 pb-[20px] pt-[20px]">
             <a
               href="#ingridients"
-              scroll={false}
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("ingridients")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               class="rounded-xl  shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold"
             >
               Add ingridients
@@ -114,22 +136,23 @@ export const PizzaDetails = () => {
             </div>
           </div>
 
-          <div class="flex gap-16 pb-[50px]">
+          <div class="flex gap-16 pb-[20px]">
             <p class="text-2xl font-medium">
               Ingridients:{" "}
               <span class="text-3xl font-bold">
-                {priceIngredient.toFixed(2)}$
+                {priceIngredient === 0 ? 0 : priceIngredient.toFixed(2)}$
               </span>
             </p>
             <p class="text-2xl font-medium">
-              Total: <span class="text-3xl font-bold">{price.toFixed(2)}$</span>
+              Total:{" "}
+              <span class="text-3xl font-bold">{totalPrice.toFixed(2)}$</span>
             </p>
           </div>
           {chosenIngredient.length === 0 ? null : (
-            <ul class="grid grid-row-3 grid-cols-7 gap-x-1 gap-y-1">
+            <ul class="grid grid-row-3 grid-cols-7 pb-[20px]">
               {chosenIngredient.map((i, index) => (
                 <li key={index}>
-                  <p>{i}</p>
+                  <p class="font-semibold text-center">{i}</p>
                 </li>
               ))}
             </ul>
