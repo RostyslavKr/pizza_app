@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export const Header = () => {
   return (
     <header class="absolute w-screen bg-[#15181a7d]">
@@ -28,7 +30,7 @@ export const Header = () => {
           </ul>
         </nav>
         <div class="flex">
-          <button>
+          {/* <button>
             <svg
               width="25px"
               height="25px"
@@ -36,16 +38,18 @@ export const Header = () => {
             >
               <use href="./images/sprite.svg#login"></use>
             </svg>
-          </button>
-          <button class="fixed top-[60px] right-[15px] bg-[url(./images/icon-card-bg.png)] bg-cover bg-no-repeat bg-center flex  justify-center items-center w-[100px] h-[100px] z-3">
-            <svg
-              width="25px"
-              height="25px"
-              class="fill-white hover:fill-orange-700 duration-250 ease-in"
-            >
-              <use href="./images/sprite.svg#shopping-basket"></use>
-            </svg>
-          </button>
+          </button> */}
+          <Link to="/checkout">
+            <button class="fixed top-[15px] right-[15px] bg-[url(./images/icon-card-bg.png)] bg-cover bg-no-repeat bg-center flex  justify-center items-center w-[100px] h-[100px] z-3 cursor-pointer">
+              <svg
+                width="25px"
+                height="25px"
+                class="fill-white hover:fill-orange-700 duration-250 ease-in"
+              >
+                <use href="./images/sprite.svg#shopping-basket"></use>
+              </svg>
+            </button>
+          </Link>
         </div>
       </div>
     </header>

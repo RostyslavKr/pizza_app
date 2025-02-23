@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { getPizzaById } from "../apiMenu";
 import { getIngredients } from "../apiIngredients";
 
-export const PizzaDetails = () => {
+export const PizzaDetails = ({ addToCart }) => {
   const [counter, setCounter] = useState(1);
   const [size, setSize] = useState(30);
   const [chosenIngredient, setChosenIngredient] = useState([]);
@@ -157,7 +157,19 @@ export const PizzaDetails = () => {
               ))}
             </ul>
           )}
-          <button class="rounded-xl shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold tracking-wide cursor-pointer">
+          <button
+            class="rounded-xl shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold tracking-wide cursor-pointer"
+            onClick={() =>
+              addToCart(
+                pizza.id,
+                pizza.image,
+                pizza.title,
+                totalPrice,
+                size,
+                calculatedWeight
+              )
+            }
+          >
             Add to cart
           </button>
         </div>

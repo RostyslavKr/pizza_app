@@ -1,13 +1,68 @@
+import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router";
 import { MainPage } from "./pages/MainPage";
 import { PizzaDetailsPage } from "./pages/PizzaDetailsPage";
+import { CheckoutPage } from "./pages/CheckoutPage";
+import { getPizzaById } from "./apiMenu";
 
 function App() {
+  const [pizza, setPizza] = useState([]);
+  console.log("pizza", pizza);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem("orderData");
+    if (savedData) {
+      setPizza(JSON.parse(savedData));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (pizza.length === 0) {
+      localStorage.removeItem("orderData");
+    } else {
+      localStorage.setItem("orderData", JSON.stringify(pizza));
+    }
+  }, [pizza]);
+
+  const addToCart = (id, image, title, price, size, weight) => {
+    const addedPizza = {
+      id: id,
+      image: image,
+      title: title,
+      price: parseFloat(price),
+      size: size,
+      weight: weight,
+    };
+    const foundSimilarPizza = pizza.find((p) => p.id === id);
+
+    if (foundSimilarPizza) {
+      return;
+    } else {
+      setPizza((prevPizza) => [...prevPizza, addedPizza]);
+    }
+  };
+
+  const removePizzaFromCart = (id) => {
+    setPizza((prevPizza) => prevPizza.filter((p) => p.id !== id));
+  };
+
   return (
     <>
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/:id" element={<PizzaDetailsPage />} />
+        <Route path="/" element={<MainPage addToCart={addToCart} />} />
+        <Route
+          path="/:id"
+          element={<PizzaDetailsPage addToCart={addToCart} />}
+        />
+        <Route
+          path="/checkout"
+          element={
+            <CheckoutPage
+              removePizzaFromCart={removePizzaFromCart}
+              pizza={pizza}
+            />
+          }
+        />
       </Routes>
     </>
   );
