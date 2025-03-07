@@ -27,7 +27,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
         </div>
       ) : (
         <ul>
-          {pizzas.map(({ id, image, title, price, weight, size }) => (
+          {pizzas.map(({ id, image, title, price, weight, size, count }) => (
             <li key={id}>
               <img src={image} alt="pizza" width={450} height={450} />
 
@@ -35,6 +35,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
               <p>{price.toFixed(2)}$</p>
               <p>{weight}g</p>
               <p>{size}cm</p>
+              {count === 1 ? null : <p>{count}</p>}
               <button onClick={() => removePizzaFromCart(id)}>Remove</button>
             </li>
           ))}

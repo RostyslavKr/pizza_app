@@ -12,8 +12,10 @@ export const PizzaItem = ({
 }) => {
   const pricePizza = parseFloat(price);
   const [size, setSize] = useState(30);
+  const [counter, setCounter] = useState(1);
   const calculatedPrice = size === 30 ? pricePizza : pricePizza * 1.5;
   const calculatedWeight = size === 30 ? weight : weight * 1.7;
+
   return (
     <li class="bg-white rounded-xl hover:shadow-xl hover:scale-[1.05] duration-250 ease-in ">
       <div>
@@ -36,7 +38,8 @@ export const PizzaItem = ({
                 title,
                 calculatedPrice,
                 size,
-                calculatedWeight
+                calculatedWeight,
+                counter
               )
             }
           >

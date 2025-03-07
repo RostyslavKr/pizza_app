@@ -4,7 +4,7 @@ import { Footer } from "../components/Footer";
 export const CheckoutPage = ({ removePizzaFromCart, pizza }) => {
   return (
     <>
-      <Header />
+      <Header pizza={pizza} />
       <Checkout removePizzaFromCart={removePizzaFromCart} pizza={pizza} />
       <Footer />
     </>

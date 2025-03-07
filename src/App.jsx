@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router";
 import { MainPage } from "./pages/MainPage";
 import { PizzaDetailsPage } from "./pages/PizzaDetailsPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
-import { getPizzaById } from "./apiMenu";
 
 function App() {
   const [pizza, setPizza] = useState([]);
@@ -24,7 +23,7 @@ function App() {
     }
   }, [pizza]);
 
-  const addToCart = (id, image, title, price, size, weight) => {
+  const addToCart = (id, image, title, price, size, weight, count) => {
     const addedPizza = {
       id: id,
       image: image,
@@ -32,6 +31,7 @@ function App() {
       price: parseFloat(price),
       size: size,
       weight: weight,
+      count: count,
     };
     const foundSimilarPizza = pizza.find((p) => p.id === id);
 
@@ -49,10 +49,13 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<MainPage addToCart={addToCart} />} />
+        <Route
+          path="/"
+          element={<MainPage addToCart={addToCart} pizza={pizza} />}
+        />
         <Route
           path="/:id"
-          element={<PizzaDetailsPage addToCart={addToCart} />}
+          element={<PizzaDetailsPage addToCart={addToCart} pizza={pizza} />}
         />
         <Route
           path="/checkout"
