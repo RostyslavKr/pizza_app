@@ -26,19 +26,75 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
           </p>
         </div>
       ) : (
-        <ul>
-          {pizzas.map(({ id, image, title, price, weight, size, count }) => (
-            <li key={id}>
-              <img src={image} alt="pizza" width={450} height={450} />
+        <ul class="flex-col grid gap-3">
+          {pizzas.map(
+            ({
+              id,
+              image,
+              title,
+              price,
+              weight,
+              size,
+              count,
+              chosenIngredient,
+            }) => (
+              <li
+                class=" flex justify-between rounded-md shadow-md
 
-              <p class="text-4xl font-semibold pb-[10px]">{title}</p>
-              <p>{price.toFixed(2)}$</p>
-              <p>{weight}g</p>
-              <p>{size}cm</p>
-              {count === 1 ? null : <p>{count}</p>}
-              <button onClick={() => removePizzaFromCart(id)}>Remove</button>
-            </li>
-          ))}
+ bg-white w-[70%] m-auto p-[15px] hover:scale-[1.02] duration-250 ease-in"
+                key={id}
+              >
+                <div class="flex">
+                  <img src={image} alt="pizza" width={150} height={150} />
+
+                  <div class="pl-[20px]">
+                    <p class="text-4xl font-semibold pb-[10px]">{title}</p>
+                    <div class="flex justify-between gap-[10px]">
+                      <div>
+                        <p>
+                          <span class="font-semibold">Cost:</span>{" "}
+                          {price.toFixed(2)}$
+                        </p>
+                        <p>
+                          <span class="font-semibold">Weight:</span> {weight}g
+                        </p>
+                        <p>
+                          <span class="font-semibold">Size:</span> {size}cm
+                        </p>
+                        {count === 1 ? null : (
+                          <p>
+                            <span class="font-semibold">Count:</span> {count}
+                          </p>
+                        )}
+                      </div>
+                      {chosenIngredient.length === 0 ? null : (
+                        <div>
+                          <p class="grid grid-row-3 grid-cols-7 gap-3 text-centre">
+                            <span class="font-semibold">Ingridients:</span>
+                            {chosenIngredient.map((i, index) => (
+                              <span key={index}>{i}</span>
+                            ))}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <button
+                  class="self-start cursor-pointer"
+                  onClick={() => removePizzaFromCart(id)}
+                >
+                  <svg
+                    class="fill-red-500 hover:scale-[1.1] duration-250 ease-in"
+                    width="25px"
+                    height="25px"
+                  >
+                    <use href="/images/sprite.svg#cancel"></use>
+                  </svg>
+                </button>
+              </li>
+            )
+          )}
         </ul>
       )}
     </div>

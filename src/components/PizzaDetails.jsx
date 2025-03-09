@@ -167,7 +167,8 @@ export const PizzaDetails = ({ addToCart }) => {
                 totalPrice,
                 size,
                 calculatedWeight,
-                counter
+                counter,
+                chosenIngredient
               )
             }
           >

@@ -23,7 +23,16 @@ function App() {
     }
   }, [pizza]);
 
-  const addToCart = (id, image, title, price, size, weight, count) => {
+  const addToCart = (
+    id,
+    image,
+    title,
+    price,
+    size,
+    weight,
+    count,
+    chosenIngredient
+  ) => {
     const addedPizza = {
       id: id,
       image: image,
@@ -32,6 +41,7 @@ function App() {
       size: size,
       weight: weight,
       count: count,
+      chosenIngredient: chosenIngredient,
     };
     const foundSimilarPizza = pizza.find((p) => p.id === id);
 
