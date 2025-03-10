@@ -102,7 +102,7 @@ export const PizzaDetails = ({ addToCart }) => {
               }}
               class="rounded-xl  shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold"
             >
-              Add ingridients
+              Add ingredients
             </a>
             <div class="flex items-center">
               <button
@@ -138,7 +138,7 @@ export const PizzaDetails = ({ addToCart }) => {
 
           <div class="flex gap-16 pb-[20px]">
             <p class="text-2xl font-medium">
-              Ingridients:{" "}
+              Ingredients:{" "}
               <span class="text-3xl font-bold">
                 {priceIngredient === 0 ? 0 : priceIngredient.toFixed(2)}$
               </span>
@@ -178,7 +178,7 @@ export const PizzaDetails = ({ addToCart }) => {
       </div>
       <div class="pb-20">
         <p id="ingridients" class="text-center text-4xl font-bold pt-28 pb-16 ">
-          Ingridients for pizza
+          Ingredients for pizza
         </p>
         <form class="grid grid-row-3 grid-cols-6 gap-x-8 gap-y-15 px-[30px]">
           {ingredients.map((i, index) => (

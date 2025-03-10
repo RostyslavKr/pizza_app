@@ -16,9 +16,18 @@ export const Hero = () => {
           A cozy atmosphere, friendly staff, and the chance to enjoy meals with
           friends or family – all this awaits you at Red Moon Pizza.
         </p>
-        <button class="rounded-md bg-[#C74C33] py-4 w-[163px] hover:scale-[1.1] hover:bg-[#a7402c] duration-400 ease-in cursor-pointer">
+        <a
+          href="#menu"
+          onClick={(e) => {
+            e.preventDefault();
+            document
+              .getElementById("menu")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }}
+          class="text-center rounded-md bg-[#C74C33] py-4 w-[163px] hover:scale-[1.1] hover:bg-[#a7402c] duration-400 ease-in cursor-pointer"
+        >
           Order Now
-        </button>
+        </a>
       </div>
     </section>
   );

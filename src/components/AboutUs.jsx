@@ -1,7 +1,23 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 export const AboutUs = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#aboutus") {
+      const menuSection = document.getElementById("aboutus");
+      if (menuSection) {
+        menuSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <section class=" bg-[url(./images/about-us.png)] bg-cover bg-no-repeat bg-left-bottom">
-      <div class=" px-10 w-[60%] m-auto grid-row-3 grid gap-4 pb-16 text-white backdrop-blur-sm">
+      <div
+        id="aboutus"
+        class=" px-10 w-[60%] m-auto grid-row-3 grid gap-4 pb-16 text-white backdrop-blur-sm"
+      >
         <h3 class="font-bold text-3xl text-center pt-16">
           Red Moon Pizza in Bettendorf, Iowa
         </h3>
