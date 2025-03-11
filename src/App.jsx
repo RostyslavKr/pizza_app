@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router";
 import { MainPage } from "./pages/MainPage";
 import { PizzaDetailsPage } from "./pages/PizzaDetailsPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
+import { PromotionPage } from "./pages/PromotionPage";
+import { DeliveryPage } from "./pages/DeliveryPage";
 
 function App() {
   const [pizza, setPizza] = useState([]);
@@ -76,6 +78,8 @@ function App() {
             />
           }
         />
+        <Route path="/promotion" element={<PromotionPage pizza={pizza} />} />
+        <Route path="/delivery" element={<DeliveryPage pizza={pizza} />} />
       </Routes>
     </>
   );

@@ -39,7 +39,9 @@ export const Header = ({ pizza }) => {
               </a>
             </li>
             <li class="text-white hover:text-orange-700 duration-250 ease-in hover:cursor-pointer">
-              <a class="uppercase font-bold text-xl">Deals</a>
+              <Link to="/promotion">
+                <a class="uppercase font-bold text-xl">Deals</a>
+              </Link>
             </li>
             <li class="text-white hover:text-orange-700 duration-250 ease-in hover:cursor-pointer">
               <a onClick={goToMenu} class="uppercase font-bold text-xl">
@@ -47,7 +49,10 @@ export const Header = ({ pizza }) => {
               </a>
             </li>
             <li class="text-white hover:text-orange-700 duration-250 ease-in hover:cursor-pointer">
-              <a class="uppercase font-bold text-xl">Delivery</a>
+              <Link to="/delivery">
+                {" "}
+                <a class="uppercase font-bold text-xl">Delivery</a>
+              </Link>
             </li>
           </ul>
         </nav>
