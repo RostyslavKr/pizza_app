@@ -5,6 +5,7 @@ import { PizzaDetailsPage } from "./pages/PizzaDetailsPage";
 import { CheckoutPage } from "./pages/CheckoutPage";
 import { PromotionPage } from "./pages/PromotionPage";
 import { DeliveryPage } from "./pages/DeliveryPage";
+import { OrderPage } from "./pages/OrderPage";
 
 function App() {
   const [pizza, setPizza] = useState([]);
@@ -80,6 +81,7 @@ function App() {
         />
         <Route path="/promotion" element={<PromotionPage pizza={pizza} />} />
         <Route path="/delivery" element={<DeliveryPage pizza={pizza} />} />
+        <Route path="/order" element={<OrderPage pizza={pizza} />} />
       </Routes>
     </>
   );

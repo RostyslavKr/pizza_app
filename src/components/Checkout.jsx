@@ -1,13 +1,26 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 export const Checkout = ({ removePizzaFromCart, pizza }) => {
   const [pizzas, setPizzas] = useState(pizza);
-  const [totalCost, setTotalCost] = useState(0);
+  const [totalCost, setTotalCost] = useState(() => {
+    const savedData = localStorage.getItem("totalCostOrder");
+    return savedData ? JSON.parse(savedData) : 0;
+  });
 
   useEffect(() => {
     setPizzas(pizza);
-    setTotalCost(pizzas.reduce((acc, obj) => acc + obj.price, 0));
+    const newTotalCost = pizza.reduce((acc, obj) => acc + obj.price, 0);
+    setTotalCost(newTotalCost);
   }, [pizza]);
+
+  useEffect(() => {
+    if (totalCost === 0) {
+      localStorage.removeItem("totalCostOrder");
+    } else {
+      localStorage.setItem("totalCostOrder", JSON.stringify(totalCost));
+    }
+  }, [totalCost]);
 
   return (
     <div class="pt-36 pb-12">
@@ -109,9 +122,11 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
             <p class="font-bold text-2xl">
               Total cost: {totalCost.toFixed(2)}$
             </p>
-            <button class="rounded-md bg-[#C74C33] text-white py-3 w-[163px] hover:scale-[1.1] hover:bg-[#a7402c] duration-400 ease-in cursor-pointer">
-              Order
-            </button>
+            <Link to="/order">
+              <button class="rounded-md bg-[#C74C33] text-white py-3 w-[163px] hover:scale-[1.1] hover:bg-[#a7402c] duration-400 ease-in cursor-pointer">
+                Order
+              </button>
+            </Link>
           </div>
         </div>
       )}
