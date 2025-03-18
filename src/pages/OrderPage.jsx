@@ -8,7 +8,7 @@ export const OrderPage = ({ pizza }) => {
     <>
       {" "}
       <Header pizza={pizza} />
-      <Order />
+      <Order pizza={pizza} />
       <Footer />
     </>
   );

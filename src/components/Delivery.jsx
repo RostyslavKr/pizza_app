@@ -272,8 +272,7 @@ export const Delivery = () => {
             </div>
             <div class="font-semibold text-lg">
               <p>Orders are accepted and delivered:</p>
-              <p>From 10:00 to 21:45 for delivery</p>
-              <p>From 11:00 to 21:45 for Pickup</p>
+              <p>From 10:30 to 21:30 for delivery and pickup</p>
               <p>No days off!</p>
             </div>
           </div>
