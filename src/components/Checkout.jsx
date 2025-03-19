@@ -42,7 +42,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
         </div>
       ) : (
         <div class=" m-auto">
-          <ul class="flex-col grid gap-3">
+          <ul class="flex-col grid gap-3 px-5">
             {pizzas.map(
               ({
                 id,
@@ -57,7 +57,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
                 <li
                   class=" flex justify-between rounded-md shadow-md
 
- bg-white w-[70%] m-auto p-[15px] hover:scale-[1.02] duration-250 ease-in"
+ bg-white md:w-[70%] m-auto p-[15px] hover:scale-[1.02] duration-250 ease-in"
                   key={id}
                 >
                   <div class="flex">
@@ -70,7 +70,9 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
                     />
 
                     <div class="pl-[20px]">
-                      <p class="text-4xl font-semibold pb-[10px]">{title}</p>
+                      <p class="text-3xl md:text-4xl font-semibold pb-[10px]">
+                        {title}
+                      </p>
                       <div class="flex justify-between gap-[10px]">
                         <div>
                           <p>

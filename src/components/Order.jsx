@@ -5,7 +5,7 @@ import { DateTimePicker } from "./DataTimePicker";
 import axios from "axios";
 axios.defaults.baseURL = "https://652bfd10d0d1df5273ef0137.mockapi.io/api/v1";
 
-export const Order = ({ pizza }) => {
+export const Order = ({ pizza, removeOrder }) => {
   const [statusOrder, setStatusOrder] = useState(false);
   const [typeOrder, setTypeOrder] = useState("C");
   const [name, setName] = useState("");
@@ -38,6 +38,11 @@ export const Order = ({ pizza }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (priceProduct === 0) {
+      alert("Make the order");
+      return;
+    }
+
     const order = {
       name: name,
       phone: phoneNumber,
@@ -58,7 +63,7 @@ export const Order = ({ pizza }) => {
       .then((response) => {
         console.log(response);
         setStatusOrder(true);
-        localStorage.clear();
+        removeOrder();
       })
       .catch((error) => {
         console.error("Помилка запиту:", error);
@@ -69,12 +74,27 @@ export const Order = ({ pizza }) => {
     <section>
       <div class="pt-36 pb-12 px-10 ">
         {statusOrder ? (
-          <p>Your order have done successful</p>
+          <div class=" text-center">
+            <img
+              class="mx-auto"
+              src="/images/successOrder.png"
+              alt="order"
+              width={250}
+              height={250}
+            />
+            <p class="font-semibold text-xl ">
+              Your pizza order has been successfully placed! 🍕
+            </p>
+            <p class="font-semibold text-xl">
+              Our operator will contact you soon for confirmation.
+            </p>
+            <p class="font-semibold text-xl">Please wait for the call! 📞</p>
+          </div>
         ) : (
           <>
             <h3 class="text-center font-bold text-4xl">Placing an order</h3>
-            <div class="flex gap-12">
-              <div class="flex flex-col gap-10 w-[60%]">
+            <div class="flex flex-col md:flex-row gap-12">
+              <div class="flex flex-col gap-10 md:w-[60%]">
                 <div class="p-[20px] bg-white rounded-xl shadow-md">
                   <p class="font-bold text-3xl pb-[10px]">Placing an order</p>
                   <form class="flex">
@@ -87,7 +107,7 @@ export const Order = ({ pizza }) => {
                         onChange={() => setTypeOrder("C")}
                       />
 
-                      <span class="block p-4 rounded-sm font-medium text-xl text-center w-[90%] peer-checked:bg-amber-600 peer-checked:text-white peer-checked:font-bold border-amber-600 border duration-300 ease-in-out">
+                      <span class="block p-4 rounded-sm font-medium text-lg md:text-xl text-center w-[90%] peer-checked:bg-amber-600 peer-checked:text-white peer-checked:font-bold border-amber-600 border duration-300 ease-in-out">
                         Courier delivery
                       </span>
                     </label>
@@ -100,7 +120,7 @@ export const Order = ({ pizza }) => {
                         class="hidden peer"
                         onChange={() => setTypeOrder("P")}
                       />
-                      <span class="block p-4 rounded-sm font-medium text-xl text-center w-[90%] peer-checked:bg-amber-600 peer-checked:text-white peer-checked:font-bold border-amber-600 border duration-300 ease-in-out">
+                      <span class="block p-4 rounded-sm font-medium text-lg md:text-xl text-center w-[90%] peer-checked:bg-amber-600 peer-checked:text-white peer-checked:font-bold border-amber-600 border duration-300 ease-in-out">
                         Pick up from restaurant
                       </span>{" "}
                     </label>
@@ -188,7 +208,7 @@ export const Order = ({ pizza }) => {
 
                 <div class="p-[20px] bg-white rounded-xl shadow-md">
                   <p class="font-bold text-3xl pb-[10px]">Delivery terms</p>
-                  <form>
+                  <form class="flex flex-row gap-2 md:flex-col">
                     <label class="block w-full cursor-pointer ">
                       <input
                         type="radio"
@@ -197,7 +217,7 @@ export const Order = ({ pizza }) => {
                         class="hidden peer"
                         onChange={() => setDelTerms("quickly")}
                       />
-                      <span class="block font-medium text-xl text-center w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out mb-2">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center md:w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out md:mb-2">
                         As soon as possible
                       </span>
                     </label>{" "}
@@ -209,7 +229,7 @@ export const Order = ({ pizza }) => {
                         checked={delTerms === "certain time"}
                         onChange={() => setDelTerms("certain time")}
                       />
-                      <span class="block font-medium text-xl text-center  rounded-sm w-[50%] peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center rounded-sm md:w-[50%] peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
                         By a certain time
                       </span>
                     </label>
@@ -225,7 +245,7 @@ export const Order = ({ pizza }) => {
                 </div>
                 <div class="p-[20px] bg-white rounded-xl shadow-md">
                   <p class="font-bold text-3xl pb-[10px]">Payment Terms</p>
-                  <form>
+                  <form class="flex flex-row gap-2 md:flex-col">
                     <label>
                       <input
                         type="radio"
@@ -235,7 +255,7 @@ export const Order = ({ pizza }) => {
                         class="hidden peer"
                         onChange={() => setTypePayment("cash")}
                       />{" "}
-                      <span class="block font-medium text-xl text-center w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white border-amber-600 border duration-300 ease-in-out mb-2">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center md:w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white border-amber-600 border duration-300 ease-in-out md:mb-2">
                         Cash Payment
                       </span>
                     </label>
@@ -248,7 +268,7 @@ export const Order = ({ pizza }) => {
                         class="hidden peer"
                         onChange={() => setTypePayment("terminal")}
                       />
-                      <span class="block font-medium text-xl text-center w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center md:w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
                         Payment via Terminal
                       </span>
                     </label>
@@ -262,14 +282,14 @@ export const Order = ({ pizza }) => {
                         type="text"
                         placeholder="Comment"
                         value={addition}
-                        class="p-2 rounded-md border border-gray-400 w-[60%]"
+                        class="p-2 rounded-md border border-gray-400 md:w-[60%]"
                         onChange={(e) => setAddition(e.target.value)}
                       />
                     </label>
                   </form>
                 </div>
               </div>
-              <div class="p-[25px] bg-white rounded-xl shadow-md w-[40%] h-fit">
+              <div class="p-[25px] bg-white rounded-xl shadow-md md:w-[40%] h-fit">
                 <div class="flex justify-between pb-5">
                   <p class="font-bold text-xl">My order</p>
                   <Link to="/checkout">

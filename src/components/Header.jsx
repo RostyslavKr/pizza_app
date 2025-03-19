@@ -67,7 +67,7 @@ export const Header = ({ pizza }) => {
             </svg>
           </button> */}
           <Link to="/checkout">
-            <div class="fixed top-[15px] right-[15px] bg-[url(./images/icon-card-bg.png)] bg-cover bg-no-repeat bg-center flex  justify-center items-center w-[100px] h-[100px] z-3">
+            <div class="fixed lg:top-[15px] lg:right-[15px] md:top-[21px] md:right-[1px]  bg-[url(./images/icon-card-bg.png)] bg-cover bg-no-repeat bg-center flex  justify-center items-center lg:w-[100px] lg:h-[100px] md:w-[70px] md:h-[70px] z-3">
               <button class=" cursor-pointer">
                 <svg
                   width="25px"

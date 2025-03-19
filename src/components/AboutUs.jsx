@@ -16,7 +16,7 @@ export const AboutUs = () => {
     <section class=" bg-[url(./images/about-us.png)] bg-cover bg-no-repeat bg-left-bottom">
       <div
         id="aboutus"
-        class=" px-10 w-[60%] m-auto grid-row-3 grid gap-4 pb-16 text-white backdrop-blur-sm"
+        class=" px-10 md:w-[60%] m-auto grid-row-3 grid gap-4 pb-16 text-white backdrop-blur-sm"
       >
         <h3 class="font-bold text-3xl text-center pt-16">
           Red Moon Pizza in Bettendorf, Iowa

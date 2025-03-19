@@ -59,6 +59,11 @@ function App() {
     setPizza((prevPizza) => prevPizza.filter((p) => p.id !== id));
   };
 
+  const removeOrder = () => {
+    setPizza([]);
+    localStorage.clear();
+  };
+
   return (
     <>
       <Routes>
@@ -81,7 +86,10 @@ function App() {
         />
         <Route path="/promotion" element={<PromotionPage pizza={pizza} />} />
         <Route path="/delivery" element={<DeliveryPage pizza={pizza} />} />
-        <Route path="/order" element={<OrderPage pizza={pizza} />} />
+        <Route
+          path="/order"
+          element={<OrderPage pizza={pizza} removeOrder={removeOrder} />}
+        />
       </Routes>
     </>
   );

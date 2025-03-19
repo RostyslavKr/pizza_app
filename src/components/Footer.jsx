@@ -1,14 +1,14 @@
 export const Footer = () => {
   return (
-    <footer class="bg-[#1E1E1E]">
-      <div class="flex items-center justify-around pt-10 pb-4 w-[90%] m-auto border-b-[1px] border-[#2E292D]">
+    <footer class="bg-[#1E1E1E] h-fit">
+      <div class="flex flex-col md:flex-row items-center md:justify-around pt-10 pb-4 w-[90%] mx-auto border-b-[1px] border-[#2E292D]">
         <img
           src="./images/logo.png"
           alt="company logo"
           width={120}
           height={120}
         />
-        <address>
+        <address class="mb-7 md:mb-0">
           <ul class="grid-row-3 grid gap-4  text-white">
             <li class="flex">
               <p class="pr-2">
@@ -101,7 +101,7 @@ export const Footer = () => {
           </li>
         </ul>
       </div>
-      <div class="pt-6 pb-10 text-white flex justify-center">
+      <div class="pt-6 pb-10 px-5 text-white flex justify-center">
         <p class="pr-6 border-r border-[#2E292D]">
           ©2025 Red Moon Pizza, All rights reserved.
         </p>

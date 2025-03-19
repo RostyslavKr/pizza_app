@@ -55,6 +55,7 @@ export const Promotion = () => {
             alt="banergift"
             width={500}
             height={500}
+            class="max-h-[500px]"
           />
           <div class=" flex flex-col   gap-6">
             <p class="font-bold text-xl ">

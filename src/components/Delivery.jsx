@@ -11,59 +11,6 @@ const center = {
   lng: -90.49952117290312,
 };
 
-const greenZoneCoords = [
-  { lat: 41.521578, lng: -90.500599 },
-  { lat: 41.52171, lng: -90.486994 },
-  { lat: 41.524224, lng: -90.474272 },
-  { lat: 41.528324, lng: -90.459607 },
-  { lat: 41.539964, lng: -90.447592 },
-  { lat: 41.552659, lng: -90.438404 },
-  { lat: 41.557515, lng: -90.427189 },
-  { lat: 41.565496, lng: -90.419797 },
-  { lat: 41.57614, lng: -90.423187 },
-  { lat: 41.595156, lng: -90.493439 },
-  { lat: 41.591184, lng: -90.55144 },
-  { lat: 41.527668, lng: -90.552239 },
-  { lat: 41.529249, lng: -90.541485 },
-  { lat: 41.522297, lng: -90.513998 },
-  { lat: 41.521907, lng: -90.4955 },
-];
-
-const yellowZoneCoords = [
-  { lat: 41.590714, lng: -90.55144 },
-  { lat: 41.599814, lng: -90.622764 },
-  { lat: 41.533409, lng: -90.639429 },
-  { lat: 41.500738, lng: -90.629215 },
-  { lat: 41.465426, lng: -90.584792 },
-  { lat: 41.427644, lng: -90.587342 },
-  { lat: 41.4283, lng: -90.553733 },
-  { lat: 41.456727, lng: -90.5199 },
-  { lat: 41.461885, lng: -90.49935 },
-  { lat: 41.458155, lng: -90.48063 },
-  { lat: 41.464907, lng: -90.459467 },
-  { lat: 41.471827, lng: -90.448165 },
-  { lat: 41.470938, lng: -90.41473 },
-  { lat: 41.478038, lng: -90.406007 },
-  { lat: 41.509521, lng: -90.404952 },
-  { lat: 41.51027, lng: -90.404289 },
-  { lat: 41.511868, lng: -90.411275 },
-  { lat: 41.515594, lng: -90.425393 },
-  { lat: 41.520468, lng: -90.425542 },
-  { lat: 41.521274, lng: -90.415832 },
-  { lat: 41.533504, lng: -90.416144 },
-  { lat: 41.536387, lng: -90.417157 },
-  { lat: 41.547542, lng: -90.424447 },
-  { lat: 41.544918, lng: -90.431707 },
-  { lat: 41.534085, lng: -90.439778 },
-  { lat: 41.531794, lng: -90.434156 },
-  { lat: 41.519401, lng: -90.459855 },
-  { lat: 41.51594, lng: -90.469416 },
-  { lat: 41.51413, lng: -90.507133 },
-  { lat: 41.52155, lng: -90.528293 },
-  { lat: 41.52325, lng: -90.547874 },
-  { lat: 41.528547, lng: -90.55135 },
-  { lat: 41.534487, lng: -90.551661 },
-];
 function DeliveryPolygons() {
   const map = useMap(); // Отримуємо карту
   const greenPolygonRef = useRef(null);
@@ -238,11 +185,6 @@ export const Delivery = () => {
                 traffic jams.
               </p>
             </div>
-            {/* <p>
-              *In case of delivery delay, receive a Cheese Roll or Pizza with
-              ham and mushrooms as a gift with your next order! (This offer is
-              valid every day except December 31, March 8, and February 14).
-            </p> */}
           </div>
           <div class="flex justify-baseline">
             <div class="pr-3">

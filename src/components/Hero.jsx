@@ -6,13 +6,13 @@ export const Hero = () => {
           In the heart of Bettendorf, we invite you to enjoy the tastiest pizza
           in town!
         </h1>
-        <p class="text-left w-[40%]">
+        <p class="text-left w-[90%] md:w-[40%]">
           Crispy crust, fresh mozzarella, flavorful sauces, and the finest
           toppings come together to create a harmony you won’t forget. The menu
           features classic favorite pizzas as well as signature recipes that
           will surprise even the most discerning food lovers.
         </p>
-        <p class="text-left w-[40%]">
+        <p class="text-left w-[90%] md:w-[40%]">
           A cozy atmosphere, friendly staff, and the chance to enjoy meals with
           friends or family – all this awaits you at Red Moon Pizza.
         </p>
