@@ -25,7 +25,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
   return (
     <div class="pt-36 pb-12">
       {pizzas.length === 0 ? (
-        <div class="flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center items-center p-2">
           <img
             src="/images/bg-emptycart.png"
             alt="empty-cart"
@@ -33,10 +33,10 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
             height={100}
           />
           <p class="font-bold text-2xl">Your cart is empty</p>
-          <p class="font-medium text-xl text-gray-600 w-[35%] text-center">
+          <p class="font-medium text-xl text-gray-600 md:w-[35%] text-center">
             Looks like you have not added anything to your cart.
           </p>
-          <p class="font-medium text-xl text-gray-600 w-[35%] text-center">
+          <p class="font-medium text-xl text-gray-600 md:w-[35%] text-center">
             Go ahead & order best pizza.
           </p>
         </div>
