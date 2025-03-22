@@ -12,8 +12,8 @@ export const PizzaItem = ({
 }) => {
   const pricePizza = parseFloat(price);
   const [size, setSize] = useState(30);
-  const [counter, setCounter] = useState(1);
-  const [chosenIngredient, setChosenIngredient] = useState([]);
+  const counter = 1;
+  const chosenIngredient = [];
   const calculatedPrice = size === 30 ? pricePizza : pricePizza * 1.5;
   const calculatedWeight = size === 30 ? weight : weight * 1.7;
 

@@ -97,6 +97,7 @@ export const Order = ({ pizza, removeOrder }) => {
               <div class="flex flex-col gap-10 md:w-[60%]">
                 <div class="p-[20px] bg-white rounded-xl shadow-md">
                   <p class="font-bold text-3xl pb-[10px]">Placing an order</p>
+
                   <form class="flex">
                     <label class="block w-full cursor-pointer ">
                       <input
@@ -208,8 +209,8 @@ export const Order = ({ pizza, removeOrder }) => {
 
                 <div class="p-[20px] bg-white rounded-xl shadow-md">
                   <p class="font-bold text-3xl pb-[10px]">Delivery terms</p>
-                  <form class="flex flex-row gap-2 md:flex-col">
-                    <label class="block w-full cursor-pointer ">
+                  <form class="flex  gap-2 flex-col">
+                    <label class="block md:w-[50%]  cursor-pointer ">
                       <input
                         type="radio"
                         checked={delTerms === "quickly"}
@@ -217,11 +218,11 @@ export const Order = ({ pizza, removeOrder }) => {
                         class="hidden peer"
                         onChange={() => setDelTerms("quickly")}
                       />
-                      <span class="block p-1 font-medium text-lg md:text-xl text-center md:w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out md:mb-2">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center  rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out md:mb-2">
                         As soon as possible
                       </span>
                     </label>{" "}
-                    <label class="block w-full cursor-pointer ">
+                    <label class="block md:w-[50%]  cursor-pointer ">
                       <input
                         type="radio"
                         value="certain time"
@@ -229,24 +230,30 @@ export const Order = ({ pizza, removeOrder }) => {
                         checked={delTerms === "certain time"}
                         onChange={() => setDelTerms("certain time")}
                       />
-                      <span class="block p-1 font-medium text-lg md:text-xl text-center rounded-sm md:w-[50%] peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center rounded-sm  peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
                         By a certain time
                       </span>
                     </label>
                     {delTerms === "quickly" ? null : (
-                      <label>
+                      <label class="flex w-[10%]  cursor-pointer">
                         <DateTimePicker
                           selectedDate={selectedDate}
                           onChange={setSelectedDate}
                         />
+                        <button
+                          class="rounded-xl bg-amber-600  hover:bg-amber-700 p-1 ml-2 text-white cursor-pointer"
+                          type="button"
+                        >
+                          Ok
+                        </button>
                       </label>
                     )}
                   </form>
                 </div>
                 <div class="p-[20px] bg-white rounded-xl shadow-md">
                   <p class="font-bold text-3xl pb-[10px]">Payment Terms</p>
-                  <form class="flex flex-row gap-2 md:flex-col">
-                    <label>
+                  <form class="flex  gap-2 flex-col">
+                    <label class="block md:w-[50%]  cursor-pointer ">
                       <input
                         type="radio"
                         title="Cash Payment"
@@ -255,11 +262,11 @@ export const Order = ({ pizza, removeOrder }) => {
                         class="hidden peer"
                         onChange={() => setTypePayment("cash")}
                       />{" "}
-                      <span class="block p-1 font-medium text-lg md:text-xl text-center md:w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white border-amber-600 border duration-300 ease-in-out md:mb-2">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center rounded-sm peer-checked:bg-amber-600 peer-checked:text-white border-amber-600 border duration-300 ease-in-out md:mb-2">
                         Cash Payment
                       </span>
                     </label>
-                    <label>
+                    <label class="block md:w-[50%]  cursor-pointer ">
                       <input
                         type="radio"
                         title="Payment via Terminal"
@@ -268,7 +275,7 @@ export const Order = ({ pizza, removeOrder }) => {
                         class="hidden peer"
                         onChange={() => setTypePayment("terminal")}
                       />
-                      <span class="block p-1 font-medium text-lg md:text-xl text-center md:w-[50%] rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
+                      <span class="block p-1 font-medium text-lg md:text-xl text-center  rounded-sm peer-checked:bg-amber-600 peer-checked:text-white  border-amber-600 border duration-300 ease-in-out">
                         Payment via Terminal
                       </span>
                     </label>

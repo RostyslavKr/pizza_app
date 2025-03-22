@@ -1,6 +1,6 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { setHours, setMinutes, isBefore } from "date-fns";
+import { setHours, setMinutes, isBefore, addDays } from "date-fns";
 
 export const DateTimePicker = ({ selectedDate, onChange }) => {
   const now = new Date();
@@ -35,6 +35,7 @@ export const DateTimePicker = ({ selectedDate, onChange }) => {
         minTime={setHours(setMinutes(new Date(), 0), 10)}
         maxTime={setHours(setMinutes(new Date(), 30), 21)}
         filterTime={filterTime}
+        maxDate={addDays(new Date(), 5)}
       />
     </div>
   );

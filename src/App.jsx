@@ -6,7 +6,7 @@ import { CheckoutPage } from "./pages/CheckoutPage";
 import { PromotionPage } from "./pages/PromotionPage";
 import { DeliveryPage } from "./pages/DeliveryPage";
 import { OrderPage } from "./pages/OrderPage";
-
+import { ModalPage } from "./pages/ModalPage";
 function App() {
   const [pizza, setPizza] = useState([]);
   console.log("pizza", pizza);
@@ -90,6 +90,7 @@ function App() {
           path="/order"
           element={<OrderPage pizza={pizza} removeOrder={removeOrder} />}
         />
+        <Route path="/modal" element={<ModalPage />} />
       </Routes>
     </>
   );
