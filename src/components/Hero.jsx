@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <section class="bg-[url(./images/hero-image.png)] bg-cover bg-no-repeat bg-center w-screen pt-90 pb-95">
+    <section class="bg-[url(/images/hero-image.png)] bg-cover bg-no-repeat bg-center w-screen pt-90 pb-95">
       <div class="grid-row-3 grid gap-4  font-menu text-white pl-6 ">
         <h1 class="text-left text-xs w-[90%]">
           In the heart of Bettendorf, we invite you to enjoy the tastiest pizza

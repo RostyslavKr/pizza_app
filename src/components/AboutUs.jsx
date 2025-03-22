@@ -13,7 +13,7 @@ export const AboutUs = () => {
   }, [location]);
 
   return (
-    <section class=" bg-[url(./images/about-us.png)] bg-cover bg-no-repeat bg-left-bottom">
+    <section class=" bg-[url(/images/about-us.png)] bg-cover bg-no-repeat bg-left-bottom">
       <div
         id="aboutus"
         class=" px-10 md:w-[60%] m-auto grid-row-3 grid gap-4 pb-16 text-white backdrop-blur-sm"
