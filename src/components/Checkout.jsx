@@ -27,7 +27,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
       {pizzas.length === 0 ? (
         <div class="flex flex-col justify-center items-center">
           <img
-            src="./images/bg-emptycart.png"
+            src="/images/bg-emptycart.png"
             alt="empty-cart"
             width={300}
             height={100}
