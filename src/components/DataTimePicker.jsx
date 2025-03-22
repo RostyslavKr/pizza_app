@@ -36,7 +36,7 @@ export const DateTimePicker = ({ selectedDate, onChange }) => {
         maxTime={setHours(setMinutes(new Date(), 30), 21)}
         filterTime={filterTime}
         maxDate={addDays(new Date(), 5)}
-        popperPlacement="top-center"
+        popperPlacement="top-end"
       />
     </div>
   );
