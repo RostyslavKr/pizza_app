@@ -64,7 +64,7 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
                     <img
                       src={image}
                       alt="pizza"
-                      class="min-w-[150px] min-h-[150px]"
+                      class="min-w-[150px]  h-fit"
                       width={150}
                       height={150}
                     />
@@ -93,10 +93,12 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
                         </div>
                         {chosenIngredient.length === 0 ? null : (
                           <div>
-                            <p class="grid grid-row-3 grid-cols-5 gap-1 text-centre">
-                              <span class="font-semibold">Ingredients:</span>
+                            <p class="grid grid-row-3 grid-cols-1 lg:grid-cols-5 gap-1 text-centre">
+                              <span class="font-semibold ">Ingredients:</span>
                               {chosenIngredient.map((i, index) => (
-                                <span key={index}>{i}</span>
+                                <span key={index} class="text-sm">
+                                  {i}
+                                </span>
                               ))}
                             </p>
                           </div>

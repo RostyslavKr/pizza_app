@@ -104,8 +104,8 @@ function DeliveryPolygons() {
 export const Delivery = () => {
   return (
     <section>
-      <div class="flex gap-10  pt-36 pb-15 px-5 ">
-        <div class="w-[500px] h-[500px]">
+      <div class="flex flex-col md:flex-row  gap-10  pt-36 pb-15 px-5 ">
+        <div class="w-[400px] h-[400px] md:w-[500px] md:h-[500px]">
           <APIProvider
             apiKey={"AIzaSyBx_czP3BJK0vPF2Ned-0xA7VVHEy3n_mE"}
             onLoad={() => console.log("Maps API has loaded.")}
@@ -125,7 +125,7 @@ export const Delivery = () => {
           </APIProvider>
         </div>
 
-        <div class=" flex flex-col gap-7 w-[40%]">
+        <div class=" flex flex-col gap-7 md:w-[40%]">
           {" "}
           <div class="flex justify-baseline">
             <div class="pr-3">

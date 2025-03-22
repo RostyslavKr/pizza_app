@@ -52,18 +52,22 @@ export const PizzaDetails = ({ addToCart }) => {
       setCounter((prevCounter) => prevCounter - 1);
     }
   };
-  console.log(priceIngredient);
+
   return (
     <div class="bg-white ">
-      <div class="flex justify-around gap-4 m-auto w-[80%] pt-38">
-        <img src={pizza.image} alt="pizza" width={450} height={450} />
+      <div class="flex flex-col  md:flex-row justify-around gap-4 mx-auto w-[80%] pt-38">
+        <img
+          src={pizza.image}
+          alt="pizza"
+          class="w-[300px] h-[300px] lg:w-[450px] lg:h-[450px]"
+        />
         <div>
           <p class="text-4xl font-semibold pb-[10px]">{pizza.title}</p>
           <p>{calculatedWeight}g</p>
           <p class="text-lg font-medium tracking-wide pb-[10px]">
             {pizza.description}
           </p>
-          <form class="inline-flex items-center justify-around w-[80%] bg-gray-100  rounded-full">
+          <form class="inline-flex  items-center justify-around w-[80%] bg-gray-100  rounded-full">
             <label class="block w-full cursor-pointer text-center">
               <input
                 type="radio"
@@ -100,7 +104,7 @@ export const PizzaDetails = ({ addToCart }) => {
                   .getElementById("ingridients")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              class="rounded-xl  shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl font-semibold"
+              class="rounded-xl  shadow-md bg-[#C74C33] text-white hover:scale-105 duration-200 ease-in p-2 text-xl text-center font-semibold"
             >
               Add ingredients
             </a>
@@ -149,7 +153,7 @@ export const PizzaDetails = ({ addToCart }) => {
             </p>
           </div>
           {chosenIngredient.length === 0 ? null : (
-            <ul class="grid grid-row-3 grid-cols-7 pb-[20px]">
+            <ul class="grid grid-row-3 grid-cols-3 lg:grid-cols-7 pb-[20px]">
               {chosenIngredient.map((i, index) => (
                 <li key={index}>
                   <p class="font-semibold text-center">{i}</p>
@@ -180,7 +184,7 @@ export const PizzaDetails = ({ addToCart }) => {
         <p id="ingridients" class="text-center text-4xl font-bold pt-28 pb-16 ">
           Ingredients for pizza
         </p>
-        <form class="grid grid-row-3 grid-cols-6 gap-x-8 gap-y-15 px-[30px]">
+        <form class="grid grid-row-3 grid-cols-2 lg:grid-cols-6 gap-x-8 gap-y-15 px-[30px]">
           {ingredients.map((i, index) => (
             <label key={index} onChange={() => handleChosenIngredient(i)}>
               <input

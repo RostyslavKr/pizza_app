@@ -2,7 +2,7 @@ export const Promotion = () => {
   return (
     <section>
       <div class="grid gap-16 pt-36 pb-15 px-3">
-        <div class="flex  justify-between gap-4">
+        <div class="flex flex-col md:flex-row  justify-between gap-4">
           <img
             src="/images/deals/baner_2+1.png"
             alt="baner21"
@@ -25,7 +25,7 @@ export const Promotion = () => {
             </p>
           </div>
         </div>
-        <div class="flex  justify-between">
+        <div class="flex flex-col md:flex-row  justify-between">
           <div class="flex flex-col  justify-center gap-7">
             <p class="font-bold text-2xl ">
               The "3+1" promotion is valid on Friday, Saturday, Sunday, and
@@ -49,7 +49,7 @@ export const Promotion = () => {
             height={500}
           />
         </div>
-        <div class="flex  justify-between gap-4">
+        <div class="flex flex-col md:flex-row  justify-between gap-4">
           <img
             src="/images/deals/baner_bith_gift.png"
             alt="banergift"
@@ -84,7 +84,7 @@ export const Promotion = () => {
             <p class="font-light text-sm ">*It can be used once per year.</p>
           </div>
         </div>
-        <div class="flex justify-between">
+        <div class="flex flex-col md:flex-row  justify-between">
           <div class=" flex flex-col  justify-center gap-7">
             <p class="font-bold text-2xl ">
               We offer a 10% discount on orders with pickup
