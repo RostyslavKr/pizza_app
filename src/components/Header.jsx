@@ -22,12 +22,14 @@ export const Header = ({ pizza }) => {
   return (
     <header class="absolute w-screen bg-[#15181a7d]">
       <div class="px-2 flex md:justify-around content-center">
-        <img
-          src="./images/logo.png"
-          alt="company logo"
-          width={120}
-          height={120}
-        />
+        <Link to="/">
+          <img
+            src="./images/logo.png"
+            alt="company logo"
+            width={120}
+            height={120}
+          />
+        </Link>
 
         <nav class="hidden md:flex ">
           <ul class="flex w-lg justify-between justify-items-center items-center font-menu">

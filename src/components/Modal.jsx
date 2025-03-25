@@ -13,12 +13,15 @@ export const Modal = () => {
   return (
     <div class="flex flex-col  bg-[#1E1E1E] h-screen px-4">
       <div class="flex justify-between items-center pb-10">
-        <img
-          src="./images/logo.png"
-          alt="company logo"
-          width={120}
-          height={120}
-        />
+        <Link to="/">
+          <img
+            src="./images/logo.png"
+            alt="company logo"
+            width={120}
+            height={120}
+          />
+        </Link>
+
         <Link to="/">
           <button class="cursor-pointer">
             <svg

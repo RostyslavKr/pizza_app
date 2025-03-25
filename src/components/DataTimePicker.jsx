@@ -21,7 +21,7 @@ export const DateTimePicker = ({ selectedDate, onChange }) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex pr-3">
       <DatePicker
         selected={selectedDate}
         onChange={handleChange}
