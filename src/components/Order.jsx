@@ -241,7 +241,7 @@ export const Order = ({ pizza, removeOrder }) => {
                           onChange={setSelectedDate}
                         />
                         <button
-                          class="rounded-xl bg-amber-600  hover:bg-amber-700 p-1 min-ml-2 text-white cursor-pointer"
+                          class="rounded-xl bg-amber-600  hover:bg-amber-700 p-1 ml-2 text-white cursor-pointer"
                           type="button"
                         >
                           Ok
