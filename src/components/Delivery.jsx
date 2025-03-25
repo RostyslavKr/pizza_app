@@ -105,7 +105,7 @@ export const Delivery = () => {
   return (
     <section>
       <div class="flex flex-col md:flex-row  gap-10  pt-36 pb-15 px-5 ">
-        <div class="w-[350px] h-[350px] md:w-[500px] md:h-[500px]">
+        <div class="w-[350px] h-[350px] md:w-[500px] md:h-[500px] mx-auto">
           <APIProvider
             apiKey={"AIzaSyBx_czP3BJK0vPF2Ned-0xA7VVHEy3n_mE"}
             onLoad={() => console.log("Maps API has loaded.")}
