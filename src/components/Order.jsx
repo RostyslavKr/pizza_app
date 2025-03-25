@@ -235,7 +235,7 @@ export const Order = ({ pizza, removeOrder }) => {
                       </span>
                     </label>
                     {delTerms === "quickly" ? null : (
-                      <label class="flex w-[10%]  cursor-pointer">
+                      <label class="flex w-[13%]  cursor-pointer">
                         <DateTimePicker
                           selectedDate={selectedDate}
                           onChange={setSelectedDate}
