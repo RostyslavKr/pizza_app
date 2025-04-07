@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import { PizzaItem } from "./PizzaItem";
-import { getMenu } from "../../apiMenu";
+import { getMenu } from "../../utils/apiMenu";
 export const Menu = ({ addToCart }) => {
   const location = useLocation();
 
+  // Smooth scroll to the section if hash is #menu
   useEffect(() => {
     if (location.hash === "#menu") {
       const menuSection = document.getElementById("menu");
@@ -13,7 +14,10 @@ export const Menu = ({ addToCart }) => {
       }
     }
   }, [location]);
+
+  // Get the list of pizzas from the menu
   const menu = getMenu();
+
   return (
     <section>
       <div class="pb-20">

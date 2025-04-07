@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 export const AboutUs = () => {
   const location = useLocation();
 
+  // Smooth scroll to the section if hash is #aboutus
   useEffect(() => {
     if (location.hash === "#aboutus") {
       const menuSection = document.getElementById("aboutus");

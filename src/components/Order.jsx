@@ -23,10 +23,12 @@ export const Order = ({ pizza, removeOrder }) => {
   const [typePayment, setTypePayment] = useState("terminal");
   const [addition, setAddition] = useState("");
 
+  // Price calculations based on stored values and fixed delivery cost
   const priceProduct = parseFloat(localStorage.getItem("totalCostOrder")) || 0;
   const deliveryCost = 5;
   const totalPrice = priceProduct + deliveryCost;
 
+  // Function to handle changes in address fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setAddress((prev) => ({
@@ -35,14 +37,17 @@ export const Order = ({ pizza, removeOrder }) => {
     }));
   };
 
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Check if the order has a product
     if (priceProduct === 0) {
       alert("Make the order");
       return;
     }
 
+    // Prepare the order object to send to the backend
     const order = {
       name: name,
       phone: phoneNumber,
@@ -56,6 +61,7 @@ export const Order = ({ pizza, removeOrder }) => {
       pizza: pizza,
     };
 
+    // Send the order data to the backend using Axios
     axios
       .post("/order", {
         order,

@@ -7,14 +7,18 @@ export const Header = ({ pizza }) => {
 
   const navigate = useNavigate();
 
+  // Update local pizza state and totalCount when pizza prop changes
   useEffect(() => {
     setPizza(pizza);
     setTotalCount(pizza.reduce((acc, obj) => acc + obj.count, 0));
   }, [pizza]);
 
+  // Scroll to "menu" section
   const goToMenu = () => {
     navigate("/#menu");
   };
+
+  // Scroll to "about us" section
   const goToAboutUs = () => {
     navigate("/#aboutus");
   };

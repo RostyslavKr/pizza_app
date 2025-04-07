@@ -8,12 +8,14 @@ export const Checkout = ({ removePizzaFromCart, pizza }) => {
     return savedData ? JSON.parse(savedData) : 0;
   });
 
+  // Update local pizzas and total cost whenever the `pizza` prop changes
   useEffect(() => {
     setPizzas(pizza);
     const newTotalCost = pizza.reduce((acc, obj) => acc + obj.price, 0);
     setTotalCost(newTotalCost);
   }, [pizza]);
 
+  // Save total cost to localStorage or remove it if the cost is zero
   useEffect(() => {
     if (totalCost === 0) {
       localStorage.removeItem("totalCostOrder");

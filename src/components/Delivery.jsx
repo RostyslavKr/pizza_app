@@ -6,19 +6,23 @@ import {
 } from "@vis.gl/react-google-maps";
 import { useEffect, useRef } from "react";
 
+const googleMapKey = import.meta.env.VITE_GOOGLE_MAP_KEY;
+
 const center = {
   lat: 41.552116149758454,
   lng: -90.49952117290312,
 };
 
 function DeliveryPolygons() {
-  const map = useMap(); // Отримуємо карту
+  const map = useMap();
+  // Create references for the green and yellow delivery zone polygons
   const greenPolygonRef = useRef(null);
   const yellowPolygonRef = useRef(null);
 
   useEffect(() => {
     if (!map) return;
 
+    // Coordinates defining the green delivery zone
     const greenZoneCoords = [
       { lat: 41.521578, lng: -90.500599 },
       { lat: 41.52171, lng: -90.486994 },
@@ -37,6 +41,7 @@ function DeliveryPolygons() {
       { lat: 41.521907, lng: -90.4955 },
     ];
 
+    // Coordinates defining the yellow delivery zone
     const yellowZoneCoords = [
       { lat: 41.590714, lng: -90.55144 },
       { lat: 41.599814, lng: -90.622764 },
@@ -107,7 +112,7 @@ export const Delivery = () => {
       <div class="flex flex-col md:flex-row  gap-10  pt-36 pb-15 px-5 ">
         <div class="w-[350px] h-[350px] md:w-[500px] md:h-[500px] mx-auto">
           <APIProvider
-            apiKey={"AIzaSyBx_czP3BJK0vPF2Ned-0xA7VVHEy3n_mE"}
+            apiKey={googleMapKey}
             onLoad={() => console.log("Maps API has loaded.")}
           >
             {" "}

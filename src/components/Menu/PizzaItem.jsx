@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-
 export const PizzaItem = ({
   id,
   image,
@@ -14,6 +13,8 @@ export const PizzaItem = ({
   const [size, setSize] = useState(30);
   const counter = 1;
   const chosenIngredient = [];
+
+  // Calculate price and weight based on selected size
   const calculatedPrice = size === 30 ? pricePizza : pricePizza * 1.5;
   const calculatedWeight = size === 30 ? weight : weight * 1.7;
 
@@ -49,7 +50,7 @@ export const PizzaItem = ({
           </button>
         </div>
         <form class="inline-flex items-center justify-around w-full bg-gray-100  rounded-full">
-          <label class="block w-full cursor-pointer text-center">
+          <label class="block w-full text-center cursor-pointer ">
             <input
               type="radio"
               name="size"
@@ -62,7 +63,7 @@ export const PizzaItem = ({
               30 см
             </span>
           </label>
-          <label class="block w-full cursor-pointer text-center">
+          <label class="block w-full text-center cursor-pointer ">
             <input
               type="radio"
               name="size"

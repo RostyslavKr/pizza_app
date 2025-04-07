@@ -3,9 +3,12 @@ import { Link, useNavigate } from "react-router";
 export const Modal = () => {
   const navigate = useNavigate();
 
+  // Scroll to "menu" section
   const goToMenu = () => {
     navigate("/#menu");
   };
+
+  // Scroll to "about us" section
   const goToAboutUs = () => {
     navigate("/#aboutus");
   };

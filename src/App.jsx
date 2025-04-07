@@ -7,10 +7,11 @@ import { PromotionPage } from "./pages/PromotionPage";
 import { DeliveryPage } from "./pages/DeliveryPage";
 import { OrderPage } from "./pages/OrderPage";
 import { ModalPage } from "./pages/ModalPage";
+
 function App() {
   const [pizza, setPizza] = useState([]);
-  console.log("pizza", pizza);
 
+  // Load pizza data from localStorage when the component mounts
   useEffect(() => {
     const savedData = localStorage.getItem("orderData");
     if (savedData) {
@@ -18,6 +19,7 @@ function App() {
     }
   }, []);
 
+  // Save pizza data to localStorage whenever it changes
   useEffect(() => {
     if (pizza.length === 0) {
       localStorage.removeItem("orderData");
@@ -26,6 +28,7 @@ function App() {
     }
   }, [pizza]);
 
+  // Function to add a pizza to the cart
   const addToCart = (
     id,
     image,
@@ -55,10 +58,12 @@ function App() {
     }
   };
 
+  // Function to remove a pizza from the cart by ID
   const removePizzaFromCart = (id) => {
     setPizza((prevPizza) => prevPizza.filter((p) => p.id !== id));
   };
 
+  // Function to clear the entire order and localStorage
   const removeOrder = () => {
     setPizza([]);
     localStorage.clear();

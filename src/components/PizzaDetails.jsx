@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams } from "react-router";
-import { getPizzaById } from "../apiMenu";
-import { getIngredients } from "../apiIngredients";
+import { getPizzaById } from "../utils/apiMenu";
+import { getIngredients } from "../utils/apiIngredients";
 
 export const PizzaDetails = ({ addToCart }) => {
   const [counter, setCounter] = useState(1);
@@ -17,6 +17,7 @@ export const PizzaDetails = ({ addToCart }) => {
   const calculatedWeight = size === 30 ? weight : weight * 1.7;
   const totalPrice = (calculatedPrice + priceIngredient) * counter;
 
+  // Function to handle selecting and deselecting ingredients
   const handleChosenIngredient = (ingredient) => {
     setChosenIngredient((prevChosen) =>
       prevChosen.includes(ingredient.name)
@@ -24,18 +25,21 @@ export const PizzaDetails = ({ addToCart }) => {
         : [...prevChosen, ingredient.name]
     );
 
+    // Adjust the price based on whether the ingredient is being added or removed
     setPriceIngredient((prevIng) =>
       chosenIngredient.includes(ingredient.name)
         ? parseFloat(prevIng) - parseFloat(ingredient.price)
         : parseFloat(prevIng) + parseFloat(ingredient.price)
     );
 
+    // Adjust the base price of the pizza based on the ingredient selection
     setPrice((prevPrice) =>
       chosenIngredient.includes(ingredient.name)
         ? parseFloat(prevPrice) - parseFloat(ingredient.price)
         : parseFloat(prevPrice) + parseFloat(ingredient.price)
     );
 
+    // Adjust the weight of the pizza based on the ingredient selection
     setWeight((prevWeight) =>
       chosenIngredient.includes(ingredient.name)
         ? parseFloat(prevWeight) - parseFloat(ingredient.weight)
@@ -43,10 +47,12 @@ export const PizzaDetails = ({ addToCart }) => {
     );
   };
 
+  // Function to increment the pizza quantity by 1
   const handleClickInc = () => {
     setCounter((prevCounter) => prevCounter + 1);
   };
 
+  // Function to decrement the pizza quantity by 1, with a minimum of 1 pizza
   const handleClickDecr = () => {
     if (counter > 1) {
       setCounter((prevCounter) => prevCounter - 1);
