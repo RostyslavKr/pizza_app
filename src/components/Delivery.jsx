@@ -7,7 +7,7 @@ import {
 import { useEffect, useRef } from "react";
 
 const googleMapKey = import.meta.env.VITE_GOOGLE_MAP_KEY;
-console.log("mapKey", googleMapKey);
+
 const center = {
   lat: 41.552116149758454,
   lng: -90.49952117290312,
